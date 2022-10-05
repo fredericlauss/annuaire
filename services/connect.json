@@ -1,0 +1,6 @@
+{  
+  "HOST":"localhost",
+  "DBNAME":"test",
+  "LOGIN":"root",
+  "PWD":""
+}
