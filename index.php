@@ -21,7 +21,7 @@ require_once('./services/connectDB.php');
 
 <?php
 if(isset($_POST) & !empty($_POST)){
-	$input1 = $connectDb->sanitize($_POST['input1']);
+	$input1 = $_POST['input1'];
 }
 $res = $connectDb->create($input1);
 if($res){

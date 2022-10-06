@@ -25,15 +25,10 @@ class Database
             die('Erreur :' .$e->getMessage());
         }
     }
-    public function sanitize($var)
-    {
-        $return = mysqli_real_escape_string($this->connection, $var);
-        return $return;
-    }
 
     public function create($input1) {
         $sql = "INSERT INTO `student` (prenom) VALUES ('$input1')";
-        $res = mysqli_query($this->connection, $sql);
+        $res = $sql;
         if ($res) {
              return true;
         }else {
