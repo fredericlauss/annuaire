@@ -31,12 +31,12 @@ class Database
         return $return;
     }
 
-    public function create($input1){
+    public function create($input1) {
         $sql = "INSERT INTO `student` (prenom) VALUES ('$input1')";
         $res = mysqli_query($this->connection, $sql);
-        if($res){
+        if ($res) {
              return true;
-        }else{
+        }else {
             return false;
         }
     }
