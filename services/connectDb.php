@@ -27,8 +27,9 @@ class Database
     }
 
     public function create($input1) {
-        $sql = "INSERT INTO `student` (prenom) VALUES ('$input1')";
+        $sql ="INSERT INTO `student` (prenom) VALUES ('$input1')";
         $res = $sql;
+        $this->connection->exec($sql);
         if ($res) {
              return true;
         }else {
