@@ -11,4 +11,8 @@ class Student {
     public function __destruct($id) {
         // sql pour delet dans la base de donné avec id
     }
+
+    public function update($id) {
+        
+    }
 }
