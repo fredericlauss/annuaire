@@ -5,7 +5,7 @@ class Database
     private  $dbname;
     private  $login;
     private  $pwd;
-    private $connection;
+    protected $connection;
 
     public function __construct()
     {
@@ -24,6 +24,11 @@ class Database
         } catch (Exeption $e) {
             die('Erreur :' .$e->getMessage());
         }
+    }
+
+    public function getConnection()
+    {
+        return $this->$connection;
     }
 
     public function create($input1) {

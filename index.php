@@ -20,6 +20,7 @@ require_once('./services/connectDB.php');
 </html>
 
 <?php
+
 if(isset($_POST) && !empty($_POST)){
 	$input1 = $_POST['input1'];
     $res = $connectDb->create($input1);
@@ -29,6 +30,5 @@ if(isset($_POST) && !empty($_POST)){
         echo "failed to insert data";
     }
 }
-
 
 ?>

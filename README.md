@@ -9,3 +9,10 @@ une base avec futur étudient
 
 ==> voir les étudient ( voir nb de paticipation / si entretiens fait )
 
+==> table entretiens ==> nb de fois // last time 
+
+
+enum ==> pregmatch 
+on limit cascade 
+
+
