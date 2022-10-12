@@ -5,7 +5,7 @@ class Database
     private  $dbname;
     private  $login;
     private  $pwd;
-    protected $connection;
+    public $connection;
 
     public function __construct()
     {
