@@ -13,6 +13,7 @@ class BaseManager {
     private $object;
     public $resultat;
     public $count;
+    public $pages;
     
     public function getById($id)
     {
@@ -25,6 +26,7 @@ class BaseManager {
         $req = $connectDb->connection->prepare($sqlCount);
         $req->execute();
         $this->count = (int)$req->fetch()['count'];
+        return $this->count;
     }
     
     public function getAll() {
@@ -38,12 +40,20 @@ class BaseManager {
             $sql .= " WHERE prenom LIKE :prenom";
             $params['prenom'] = '%' . $_GET['q'] . '%';
         }
-        $sql .= " LIMIT 20";
+        $sql .= " LIMIT " . 20;
 
         $req = $connectDb->connection->prepare($sql);
         $req->execute($params);
         $this->resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        
+
         return $this->resultat;
+    }
+
+    public function pages() {
+        $this->pages = ceil($this->count / 20);
+        return $this->pages;
     }
     
     public function create() {

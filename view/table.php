@@ -23,7 +23,10 @@ require_once('./controller/StudentReadController.php');
 
 	// c'est un pb aled nico
 	$students = new BaseManager();
+	$students->count();
+	$students->pages();
 	$students->getAll();
+	$page = $students->pages;
     $students = $students->resultat;
 	if(!empty($students)) { 
 		foreach($students as $row) {
@@ -40,3 +43,7 @@ require_once('./controller/StudentReadController.php');
 	?>
   </tbody>
 </table>
+
+<?php if ($page  > 1 ): ?>
+	<a href="?p=2">page suivante</a>
+<?php endif?>
