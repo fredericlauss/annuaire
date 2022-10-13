@@ -13,6 +13,7 @@ class Database
         $this->dbname = json_decode(file_get_contents('services\connect.json'), true)["DBNAME"];
         $this->login = json_decode(file_get_contents('services\connect.json'), true)["LOGIN"];
         $this->pwd = json_decode(file_get_contents('services\connect.json'), true)["PWD"];
+        $this->Db();
     }
 
     public function DB()
@@ -28,17 +29,6 @@ class Database
 
     public function getConnection()
     {
-        return $this->$connection;
-    }
-
-    public function create($input1) {
-        $sql ="INSERT INTO `student` (prenom) VALUES ('$input1')";
-        $res = $sql;
-        $this->connection->exec($sql);
-        if ($res) {
-             return true;
-        }else {
-            return false;
-        }
+        return $this->connection;
     }
 }

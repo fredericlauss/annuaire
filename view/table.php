@@ -1,7 +1,6 @@
 <?php 
 
-require_once('./controller/Studentcontroller.php');
-$studentController->read(); 
+require_once('./controller/StudentReadController.php');
 
 ?>
 <thead>
@@ -15,7 +14,7 @@ $studentController->read();
   <tbody>
 
 	<?php
-    echo $resultat;
+    echo $students->resultat;
 	if(!empty($resultat)) { 
 		foreach($resultat as $row) {
 	?>
