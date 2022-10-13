@@ -3,6 +3,12 @@
 require_once('./controller/StudentReadController.php');
 
 ?>
+
+<form action="">
+	<input type="text" name="q" placeholder="rechercher par prenom" value="<?= htmlentities($_GET['q'] ?? null) ?>">
+	<button>rechercher</button>
+</form>
+	
 <table>
 	<thead>
 		<tr>
@@ -14,6 +20,8 @@ require_once('./controller/StudentReadController.php');
 	</thead>
 	<tbody>
 	<?php
+
+	// c'est un pb aled nico
 	$students = new BaseManager();
 	$students->getAll();
     $students = $students->resultat;
