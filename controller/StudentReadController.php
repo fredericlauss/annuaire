@@ -10,6 +10,6 @@ class StudentReadController {
 
     public function read() {
         $students = new BaseManager();
-        $students->getAll();
+        return  $students->getAll();
     }
 }

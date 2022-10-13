@@ -3,20 +3,22 @@
 require_once('./controller/StudentReadController.php');
 
 ?>
-<thead>
-	<tr>
-	  <th width="25%">prenom</th>
-	  <th width="25%">nom</th>
-	  <th width="25%">mail</th>
-	  <th width="25%">tel</th>
-	</tr>
-  </thead>
-  <tbody>
-
+<table>
+	<thead>
+		<tr>
+		<th>prenom</th>
+		<th>nom</th>
+		<th>mail</th>
+		<th>tel</th>
+		</tr>
+	</thead>
+	<tbody>
 	<?php
-    echo $students->resultat;
-	if(!empty($resultat)) { 
-		foreach($resultat as $row) {
+	$students = new BaseManager();
+	$students->getAll();
+    $students = $students->resultat;
+	if(!empty($students)) { 
+		foreach($students as $row) {
 	?>
 	  <tr>
 		<td><?php echo $row["prenom"]; ?></td>
