@@ -3,7 +3,7 @@
 
 require_once('./services/connectDb.php');
 require_once('./controller/StudentConnectionController.php');
-
+require_once('./model/Student.php');
 
 
 class BaseManager {
@@ -14,11 +14,13 @@ class BaseManager {
     public $resultat;
     public $count;
     public $pages;
-    
+    public $row;
+
     public function getById($id)
     {
 
     }
+
 
     public function count() {
         $connectDb = new Database();
@@ -30,29 +32,33 @@ class BaseManager {
     }
     
     public function getAll() {
+        $students = [];
         $connectDb = new Database();
         $sql = "SELECT * FROM student";
         $params =[];
-
-
         //filtre
         if (!empty($_GET['q'])) {
             $sql .= " WHERE prenom LIKE :prenom";
             $params['prenom'] = '%' . $_GET['q'] . '%';
         }
         $sql .= " LIMIT " . 20;
-
         $req = $connectDb->connection->prepare($sql);
         $req->execute($params);
-        $this->resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $this->resultat;
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+         
+            foreach($resultat as $row) {
+                $students[] = new Student($row);
+            }
+        return $students;
     }
+
 
     public function pages() {
         $this->pages = ceil($this->count() / 20);
         return $this->pages;
     }
     
+   
     public function create() {
         $sql ="INSERT INTO `student` (prenom) VALUES ('$input1')";
         $res = $sql;
@@ -64,10 +70,12 @@ class BaseManager {
         }
     }
     
+    
     public function update($obj)
     {
         
     }
+    
     
     public function delete($obj)
     {

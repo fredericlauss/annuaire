@@ -15,18 +15,20 @@ require_once('./controller/StudentReadController.php');
 		<th>nom</th>
 		<th>mail</th>
 		<th>tel</th>
+		<th>id</th>
 		</tr>
 	</thead>
 	<tbody>
 	<?php
 	if(!empty($students)) { 
-		foreach($students as $row) {
+		foreach($students as $row ) {
 	?>
 	  <tr>
-		<td><?php echo $row["prenom"]; ?></td>
-		<td><?php echo $row["nom"]; ?></td>
-		<td><?php echo $row["mail"]; ?></td>
-		<td><?php echo $row["tel"]; ?></td>
+		<td><?php echo $row->get_prenom(); ?></td>
+		<td><?php echo $row->get_name(); ?></td>
+		<td><?php echo $row->get_mail(); ?></td>
+		<td><?php echo $row->get_tel(); ?></td>
+		<td><?php echo $row->get_id(); ?></td>
 	  </tr>
     <?php
 		}
