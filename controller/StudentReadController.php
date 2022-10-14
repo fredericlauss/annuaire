@@ -1,11 +1,19 @@
 <?php
 require_once('./services/connectDB.php');
-require_once('./model/BaseManager.php');
+require_once('./manager/BaseManager.php');
 
 $readcontroller = new StudentReadController();
 $readcontroller->count();
-$readcontroller->pages();
-$readcontroller->read();
+$page = $readcontroller->pages();
+$students = $readcontroller->read();
+//model
+// if(!empty($students)) { 
+//     foreach($students as $row) {
+//     $student = new Student;
+//     }
+// }
+// fin model
+require_once('./view/home.php');
 
 
 

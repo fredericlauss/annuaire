@@ -49,7 +49,7 @@ class BaseManager {
     }
 
     public function pages() {
-        $this->pages = ceil($this->count / 20);
+        $this->pages = ceil($this->count() / 20);
         return $this->pages;
     }
     

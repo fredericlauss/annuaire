@@ -1,5 +1,4 @@
 <?php 
-
 require_once('./controller/StudentReadController.php');
 
 ?>
@@ -20,14 +19,6 @@ require_once('./controller/StudentReadController.php');
 	</thead>
 	<tbody>
 	<?php
-
-	// c'est un pb aled nico
-	$students = new BaseManager();
-	$students->count();
-	$students->pages();
-	$students->getAll();
-	$page = $students->pages;
-    $students = $students->resultat;
 	if(!empty($students)) { 
 		foreach($students as $row) {
 	?>

@@ -1,6 +1,6 @@
 <?php
 require_once('./services/connectDB.php');
-require_once('./model/BaseManager.php');
+require_once('./manager/BaseManager.php');
 $studentCreatController = new StudentCreatController();
 $studentCreatController->creat();
 

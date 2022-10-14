@@ -14,9 +14,9 @@ function verifnb($letters, $nb) {
     $resultatTest = $req->fetchAll(PDO::FETCH_ASSOC);
 
     if ( $resultatTest[0]["COUNT(id)"] == $nb ) {
-        echo "pass";
+        echo "pass ! ";
     } else {
-        echo "error";
+        echo "error ! ";
     }
     }
     verifnb('aze', 7);
