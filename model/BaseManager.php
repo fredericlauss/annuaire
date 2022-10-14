@@ -45,9 +45,6 @@ class BaseManager {
         $req = $connectDb->connection->prepare($sql);
         $req->execute($params);
         $this->resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-
-        
-
         return $this->resultat;
     }
 
