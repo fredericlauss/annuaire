@@ -15,6 +15,8 @@ class BaseManager {
     public $count;
     public $pages;
     public $row;
+    public $page;
+    public $offset;
 
     public function getById($id)
     {
@@ -41,7 +43,10 @@ class BaseManager {
             $sql .= " WHERE prenom LIKE :prenom";
             $params['prenom'] = '%' . $_GET['q'] . '%';
         }
-        $sql .= " LIMIT " . 20;
+        //pagination
+            $this->offset = ($this->page()-1) * 20;
+        //suite
+        $sql .= " LIMIT " . 20 . " OFFSET $this->offset";
         $req = $connectDb->connection->prepare($sql);
         $req->execute($params);
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -51,7 +56,9 @@ class BaseManager {
             }
         return $students;
     }
-
+    public function page() {
+        return $this->page = (int)($_GET['p'] ?? 1);
+    }
 
     public function pages() {
         $this->pages = ceil($this->count() / 20);

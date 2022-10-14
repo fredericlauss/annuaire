@@ -37,6 +37,6 @@ require_once('./controller/StudentReadController.php');
   </tbody>
 </table>
 
-<?php if ($page  > 1 ): ?>
-	<a href="?p=2">page suivante</a>
+<?php if ($pages  > 1 ): ?>
+	<a href="?p=<?= $page + 1 ?>">page suivante</a>
 <?php endif?>

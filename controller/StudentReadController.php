@@ -3,9 +3,9 @@ require_once('./services/connectDB.php');
 require_once('./manager/BaseManager.php');
 $readcontroller = new StudentReadController();
 $readcontroller->count();
-$page = $readcontroller->pages();
+$pages = $readcontroller->pages();
+$page = $readcontroller->page();
 $students = $readcontroller->read();
-// fin view
 require_once('./view/home.php');
 
 
@@ -25,5 +25,10 @@ class StudentReadController {
     public function pages() {
         $students = new BaseManager();
         return  $students->pages();
+    }
+
+    public function page() {
+        $students = new BaseManager();
+        return  $students->page();
     }
 }

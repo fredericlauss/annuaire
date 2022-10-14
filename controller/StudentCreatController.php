@@ -1,4 +1,5 @@
 <?php
+chdir('../');
 require_once('./services/connectDB.php');
 require_once('./manager/BaseManager.php');
 $studentCreatController = new StudentCreatController();
