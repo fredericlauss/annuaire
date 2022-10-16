@@ -66,10 +66,11 @@ class BaseManager {
     }
     
    
-    public function create() {
+    public function create($input1) {
+        $connectDb = new Database();
         $sql ="INSERT INTO `student` (prenom) VALUES ('$input1')";
         $res = $sql;
-        $this->connection->exec($sql);
+        $connectDb->connection->exec($sql);
         if ($res) {
              return true;
         }else {
