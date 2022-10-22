@@ -4,8 +4,7 @@ require_once('./services/connectDB.php');
 require_once('./manager/BaseManager.php');
 $studentCreatController = new StudentCreatController();
 $studentCreatController->creat();
-header('Location: http://localhost/annuaire/');
-exit();
+
 
 class StudentCreatController {
 

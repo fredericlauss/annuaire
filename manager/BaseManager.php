@@ -85,9 +85,17 @@ class BaseManager {
     }
     
     
-    public function delete($obj)
-    {
-        
+    public function delete($id) {
+        $connectDb = new Database();
+        $sql ="DELETE FROM student WHERE id='$id'";
+        $res = $sql;
+        $connectDb->connection->exec($sql);
+        if ($res) {
+            echo "delete de $id";
+             return true;
+        }else {
+            return false;
+        }
     }
 
 }

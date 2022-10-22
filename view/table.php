@@ -16,6 +16,7 @@ require_once('./controller/StudentReadController.php');
 		<th>mail</th>
 		<th>tel</th>
 		<th>id</th>
+		<th>action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,6 +30,12 @@ require_once('./controller/StudentReadController.php');
 		<td><?php echo $row->get_mail(); ?></td>
 		<td><?php echo $row->get_tel(); ?></td>
 		<td><?php echo $row->get_id(); ?></td>
+		<td>
+			<form action="controller\StudentDeleteController.php" method="POST">
+				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
+				<input type="submit" name="delete" value="delete">
+			</form>
+		</td>
 	  </tr>
     <?php
 		}
