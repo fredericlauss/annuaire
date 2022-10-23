@@ -86,10 +86,8 @@ class BaseManager {
         $res = $sql;
         $connectDb->connection->exec($sql);
         if ($res) {
-            echo "oui";
              return true;
         }else {
-            echo "non";
             return false;
         }
     }
