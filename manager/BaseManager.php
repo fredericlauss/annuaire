@@ -79,9 +79,19 @@ class BaseManager {
     }
     
     
-    public function update($obj)
+    public function update($id, $input1)
     {
-        
+        $connectDb = new Database();
+        $sql ="UPDATE `student` SET `prenom`='$input1' WHERE `id`='$id'";
+        $res = $sql;
+        $connectDb->connection->exec($sql);
+        if ($res) {
+            echo "oui";
+             return true;
+        }else {
+            echo "non";
+            return false;
+        }
     }
     
     

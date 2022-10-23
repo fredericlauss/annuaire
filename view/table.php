@@ -24,7 +24,7 @@ require_once('./controller/StudentReadController.php');
 	if(!empty($students)) { 
 		foreach($students as $row ) {
 	?>
-	  <tr>
+	<tr>
 		<td><?php echo $row->get_prenom(); ?></td>
 		<td><?php echo $row->get_name(); ?></td>
 		<td><?php echo $row->get_mail(); ?></td>
@@ -36,7 +36,15 @@ require_once('./controller/StudentReadController.php');
 				<input type="submit" name="delete" value="delete">
 			</form>
 		</td>
-	  </tr>
+	  	<td>
+			<form action="controller\StudentUpdateController.php" method="POST">
+				<label for="input1">Nom</label>
+				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
+    			<input type="text" name="input1" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
+				<input type="submit" name="update" value="update">
+			</form>
+		<td>
+	</tr>
     <?php
 		}
 	}
