@@ -8,5 +8,7 @@
     <input type="text" name="input3" placeholder="mail" />
     <label for="input4">Telephone</label>
     <input type="text" name="input4" placeholder="Tel" />
+    <label for="input5">Jpo</label>
+    <input type="text" name="input5" placeholder="jpo" />
     <input type="submit" class="" value="submit" />
 </form>

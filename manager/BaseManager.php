@@ -18,10 +18,6 @@ class BaseManager {
     public $page;
     public $offset;
 
-    public function getById($id)
-    {
-
-    }
 
 
     public function count() {
@@ -56,6 +52,7 @@ class BaseManager {
             }
         return $students;
     }
+
     public function page() {
         return $this->page = (int)($_GET['p'] ?? 1);
     }
@@ -66,13 +63,16 @@ class BaseManager {
     }
     
    
-    public function create($input1, $input2, $input3, $input4) {
+    public function create($input1, $input2, $input3, $input4, $input5) {
         $connectDb = new Database();
         $sql ="INSERT INTO `student` (nom, prenom, mail, number) VALUES ('$input1', '$input2', '$input3', '$input4')";
         $res = $sql;
         $connectDb->connection->exec($sql);
         if ($res) {
-             return true;
+            $id = $connectDb->connection->lastInsertId();
+            $jpoStudent = new JpoStudentManager;
+            $jpoStudent->create($id, $input5);
+            return true;
         }else {
             return false;
         }

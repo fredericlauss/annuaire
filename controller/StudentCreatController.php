@@ -16,13 +16,27 @@ class StudentCreatController {
             $input2 = $_POST['input2'];
             $input3 = $_POST['input3'];
             $input4 = $_POST['input4'];
-            if($input1 && $input2 && $input3 && $input4){
+            $input4 = $_POST['input5'];
+            if($input1 && $input2 && $input3 && $input4 && $input5){
                 echo "Successfully inserted data";
             }else{
                 echo "failed to insert data";
             }
-            return  $students->create($input1, $input2, $input3, $input4);
+            return  $students->create($input1, $input2, $input3, $input4, $input5);
         }
          
+    }
+
+    public function creatRelation() {
+        $relation = new JpoStudentManager();
+        if(isset($_POST) && !empty($_POST)){
+            $input1 = $_POST['input5'];
+            if($input5){
+                echo "Successfully inserted data";
+            }else{
+                echo "failed to insert data";
+            }
+            return  $relation->create($input5);
+        }
     }
 }
