@@ -10,6 +10,7 @@
 </head>
 <body>
     <main>
+    <h2>Annuaire NWS</h2>
     <?php require_once( __DIR__ . './form.php') ?>
     <?php require_once( __DIR__ . './table.php') ?>
     </main>

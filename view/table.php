@@ -11,8 +11,8 @@ require_once('./controller/StudentReadController.php');
 <table>
 	<thead>
 		<tr>
-		<th>prenom</th>
 		<th>nom</th>
+		<th>prénom</th>
 		<th>mail</th>
 		<th>tel</th>
 		<th>id</th>
@@ -25,8 +25,8 @@ require_once('./controller/StudentReadController.php');
 		foreach($students as $row ) {
 	?>
 	<tr>
-		<td><?php echo $row->get_prenom(); ?></td>
 		<td><?php echo $row->get_name(); ?></td>
+		<td><?php echo $row->get_prenom(); ?></td>
 		<td><?php echo $row->get_mail(); ?></td>
 		<td><?php echo $row->get_tel(); ?></td>
 		<td><?php echo $row->get_id(); ?></td>
@@ -40,7 +40,10 @@ require_once('./controller/StudentReadController.php');
 			<form action="controller\StudentUpdateController.php" method="POST">
 				<label for="input1">Nom</label>
 				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
-    			<input type="text" name="input1" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
+				<input type="text" name="input1" placeholder="<?php echo $row->get_name(); ?>" value="<?php echo $row->get_name(); ?>"/>
+    			<input type="text" name="input2" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
+				<input type="text" name="input3" placeholder="<?php echo $row->get_mail(); ?>" value="<?php echo $row->get_mail(); ?>"/>
+				<input type="text" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
 				<input type="submit" name="update" value="update">
 			</form>
 		<td>

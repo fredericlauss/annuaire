@@ -40,8 +40,8 @@ class BaseManager {
         $params =[];
         //filtre
         if (!empty($_GET['q'])) {
-            $sql .= " WHERE prenom LIKE :prenom";
-            $params['prenom'] = '%' . $_GET['q'] . '%';
+            $sql .= " WHERE nom LIKE :nom";
+            $params['nom'] = '%' . $_GET['q'] . '%';
         }
         //pagination
             $this->offset = ($this->page()-1) * 20;
@@ -66,9 +66,9 @@ class BaseManager {
     }
     
    
-    public function create($input1) {
+    public function create($input1, $input2, $input3, $input4) {
         $connectDb = new Database();
-        $sql ="INSERT INTO `student` (prenom) VALUES ('$input1')";
+        $sql ="INSERT INTO `student` (nom, prenom, mail, number) VALUES ('$input1', '$input2', '$input3', '$input4')";
         $res = $sql;
         $connectDb->connection->exec($sql);
         if ($res) {
@@ -79,10 +79,10 @@ class BaseManager {
     }
     
     
-    public function update($id, $input1)
+    public function update($id, $input1, $input2, $input3, $input4)
     {
         $connectDb = new Database();
-        $sql ="UPDATE `student` SET `prenom`='$input1' WHERE `id`='$id'";
+        $sql ="UPDATE `student` SET `nom`='$input1', `prenom`='$input2', `mail`='$input3', `number`='$input4' WHERE `id`='$id'";
         $res = $sql;
         $connectDb->connection->exec($sql);
         if ($res) {

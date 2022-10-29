@@ -1,27 +1,27 @@
 <?php
 
 class Student {
-
-    public $firstname;
     public $name;
+    public $firstname;
     public $mail;
     public $tel;
     public $id;
 
     public function __construct($row) {
-        $this->firstname = $row["prenom"];
         $this->name = $row["nom"];
+        $this->firstname = $row["prenom"];
         $this->mail = $row["mail"];
-        $this->tel = $row["tel"];
+        $this->tel = $row["number"];
         $this->id = $row["id"];
+    }
+    // no setters ? 
+
+    public function get_name() {
+        return $this->name;
     }
 
     public function get_prenom() {
         return $this->firstname;
-    }
-
-    public function get_name() {
-        return $this->name;
     }
 
     public function get_mail() {

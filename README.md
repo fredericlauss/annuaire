@@ -11,8 +11,6 @@ une base avec futur étudient
 
 ==> table entretiens ==> nb de fois // last time 
 
-
 enum ==> pregmatch 
 on limit cascade 
-
-
+créer un rooter ! 
