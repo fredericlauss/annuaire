@@ -4,6 +4,7 @@
 require_once('./services/connectDb.php');
 require_once('./controller/StudentConnectionController.php');
 require_once('./model/Student.php');
+require_once('JpoStudentManager.php');
 
 
 class BaseManager {

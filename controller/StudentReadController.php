@@ -1,16 +1,22 @@
 <?php
 require_once('./services/connectDB.php');
 require_once('./manager/BaseManager.php');
+require_once('./manager/JpoManager.php');
 $readcontroller = new StudentReadController();
 $readcontroller->count();
 $pages = $readcontroller->pages();
 $page = $readcontroller->page();
 $students = $readcontroller->read();
+$jpo = $readcontroller->readJpo();
 require_once('./view/home.php');
 
 
 
 class StudentReadController {
+    public function readJpo() {
+        $jpo = new JpoManager();
+        return $jpo->getAll();
+    }
 
     public function read() {
         $students = new BaseManager();

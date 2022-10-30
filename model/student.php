@@ -6,6 +6,7 @@ class Student {
     public $mail;
     public $tel;
     public $id;
+    public array $jpos;
 
     public function __construct($row) {
         $this->name = $row["nom"];
@@ -14,7 +15,14 @@ class Student {
         $this->tel = $row["number"];
         $this->id = $row["id"];
     }
-    // no setters ? 
+
+    public function set_jpos() {
+
+    }
+
+    public function get_jpos() {
+        return $this->jpos;
+    }
 
     public function get_name() {
         return $this->name;

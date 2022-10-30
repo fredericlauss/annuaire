@@ -15,7 +15,7 @@ require_once('./controller/StudentReadController.php');
 		<th>prénom</th>
 		<th>mail</th>
 		<th>tel</th>
-		<th>id</th>
+		<th>jpo</th>
 		<th>action</th>
 		</tr>
 	</thead>
@@ -29,7 +29,7 @@ require_once('./controller/StudentReadController.php');
 		<td><?php echo $row->get_prenom(); ?></td>
 		<td><?php echo $row->get_mail(); ?></td>
 		<td><?php echo $row->get_tel(); ?></td>
-		<td><?php echo $row->get_id(); ?></td>
+		<td>les jpo de monsieurs</td>
 		<td>
 			<form action="controller\StudentDeleteController.php" method="POST">
 				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
@@ -44,6 +44,17 @@ require_once('./controller/StudentReadController.php');
     			<input type="text" name="input2" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
 				<input type="text" name="input3" placeholder="<?php echo $row->get_mail(); ?>" value="<?php echo $row->get_mail(); ?>"/>
 				<input type="text" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
+				<p>
+				<?php
+				if(!empty($jpo)) { 
+					foreach($jpo as $row ) {
+				?>
+					<input type="checkbox" name="input5[]" value="<?php echo $row->get_id(); ?>"><?php echo $row->get_name(); ?>
+				<?php
+					}
+				}
+				?>
+				</p>
 				<input type="submit" name="update" value="update">
 			</form>
 		<td>

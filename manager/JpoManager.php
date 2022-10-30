@@ -1,7 +1,7 @@
 <?php
 require_once('./services/connectDb.php');
 require_once('./controller/StudentConnectionController.php');
-require_once('./model/Student.php');
+require_once('./model/Jpo.php');
 
 class JpoManager {
 
@@ -15,5 +15,19 @@ class JpoManager {
         }else {
             return false;
         }
+    }
+
+    public function getAll() {
+        $jpo = [];
+        $connectDb = new Database();
+        $sql = "SELECT * FROM jpo";
+        $req = $connectDb->connection->prepare($sql);
+        $req->execute();
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+         
+            foreach($resultat as $row) {
+                $jpo[] = new Jpo($row);
+            }
+        return $jpo;
     }
 }
