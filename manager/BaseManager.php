@@ -79,12 +79,15 @@ class BaseManager {
     }
     
     
-    public function update($id, $input1, $input2, $input3, $input4)
+    public function update($id, $input1, $input2, $input3, $input4, $input5)
     {
         $connectDb = new Database();
         $sql ="UPDATE `student` SET `nom`='$input1', `prenom`='$input2', `mail`='$input3', `number`='$input4' WHERE `id`='$id'";
         $res = $sql;
         $connectDb->connection->exec($sql);
+        $jpoStudent = new JpoStudentManager;
+        $jpoStudent->delete($id);
+        $jpoStudent->create($id, $input5);
         if ($res) {
              return true;
         }else {

@@ -17,7 +17,6 @@ class StudentCreatController {
             $input3 = $_POST['input3'];
             $input4 = $_POST['input4'];
             $input5 = $_POST['input5'];
-            var_dump($input5);
             if($input1 && $input2 && $input3 && $input4 && $input5){
                 echo "Successfully inserted data";
             }else{

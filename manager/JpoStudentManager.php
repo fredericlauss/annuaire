@@ -36,4 +36,5 @@ class JpoStudentManager {
         $jpos = $req2->fetchAll(PDO::FETCH_ASSOC);
         return $jpos;
     }
+    
 }

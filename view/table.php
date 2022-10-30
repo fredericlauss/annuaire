@@ -29,15 +29,17 @@ require_once('./controller/StudentReadController.php');
 		<td><?php echo $row->get_prenom(); ?></td>
 		<td><?php echo $row->get_mail(); ?></td>
 		<td><?php echo $row->get_tel(); ?></td>
+		<td>
 		<?php
 		foreach ($row->jpo as $key => $value) {
 			foreach ($value as $name) {
 			?>
-		<td><?php echo $name; ?></td>
+				<p><?php echo $name; ?></p>
 		<?php
 		}
 		}
 		?>
+		</td>
 		<td>
 			<form action="controller\StudentDeleteController.php" method="POST">
 				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
