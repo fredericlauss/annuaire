@@ -1,12 +1,12 @@
 <?php
-
+require_once('./manager/JpoStudentManager.php');
 class Student {
     public $name;
     public $firstname;
     public $mail;
     public $tel;
     public $id;
-    public array $jpos;
+    public $jpo;
 
     public function __construct($row) {
         $this->name = $row["nom"];
@@ -14,14 +14,17 @@ class Student {
         $this->mail = $row["mail"];
         $this->tel = $row["number"];
         $this->id = $row["id"];
+        $this->set_jpos();
     }
 
     public function set_jpos() {
-
+        $jpoStudent = new JpoStudentManager;
+        $this->jpo = $jpoStudent->read($this->id);
     }
 
     public function get_jpos() {
-        return $this->jpos;
+        $this->set_jpos();
+        return $this->jpo;
     }
 
     public function get_name() {
