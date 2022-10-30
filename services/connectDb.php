@@ -20,7 +20,6 @@ class Database
     {
         try{
             $this->connection = new PDO('mysql:host=' . $this->host . ';dbname=' .$this->dbname, $this->login , $this->pwd );
-            echo "bien co ";
             return $this->connection;
         } catch (Exeption $e) {
             die('Erreur :' .$e->getMessage());

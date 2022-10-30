@@ -40,17 +40,24 @@ class BaseManager {
             $sql .= " WHERE nom LIKE :nom";
             $params['nom'] = '%' . $_GET['q'] . '%';
         }
-        //pagination
+        //filtre jpo
+        if (!empty($_GET['f'])) {
+            $params['nom'] = $_GET['f'];
+            $sql ="SELECT * FROM student INNER JOIN jpostudent ON student.id = jpostudent.id INNER JOIN jpo On jpostudent.id_jpo = jpo.id WHERE jpo.id = :nom";
+        }
+            //pagination
             $this->offset = ($this->page()-1) * 20;
-        //suite
-        $sql .= " LIMIT " . 20 . " OFFSET $this->offset";
-        $req = $connectDb->connection->prepare($sql);
-        $req->execute($params);
-        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            //suite
+            $sql .= " LIMIT " . 20 . " OFFSET $this->offset";
+            $req = $connectDb->connection->prepare($sql);
+            $req->execute($params);
+            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($resultat);
             foreach($resultat as $row) {
                 $students[] = new Student($row);
             }
-        return $students;
+            return $students;
+          
     }
 
     public function page() {

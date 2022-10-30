@@ -29,7 +29,6 @@ class JpoStudentManager {
 
     public function read($id) {
         $connectDb = new Database();
-        // $sql2 ="SELECT $id FROM jpostudent INNER JOIN student ON jpostudent.id = student.id";
         $sql2 ="SELECT name FROM jpo INNER JOIN jpostudent ON jpo.id = jpostudent.id_jpo INNER JOIN student On jpostudent.id = student.id WHERE student.id = $id";
         $req2 = $connectDb->connection->prepare($sql2);
         $req2->execute();

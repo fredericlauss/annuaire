@@ -7,7 +7,16 @@ require_once('./controller/StudentReadController.php');
 	<input type="text" name="q" placeholder="rechercher par prenom" value="<?= htmlentities($_GET['q'] ?? null) ?>">
 	<button>rechercher</button>
 </form>
-	
+<?php
+foreach($jpo as $rows ) {
+?>
+<form action="">
+	<input type="text" name="f" value="<?php echo $rows->get_id(); ?>" hidden>
+	<button><?php echo $rows->get_name(); ?></button>
+</form>
+<?php
+}
+?>
 <table>
 	<thead>
 		<tr>
