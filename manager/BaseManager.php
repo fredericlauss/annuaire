@@ -43,7 +43,7 @@ class BaseManager {
         //filtre jpo
         if (!empty($_GET['f'])) {
             $params['nom'] = $_GET['f'];
-            $sql ="SELECT * FROM student INNER JOIN jpostudent ON student.id = jpostudent.id INNER JOIN jpo On jpostudent.id_jpo = jpo.id WHERE jpo.id = :nom";
+            $sql ="SELECT * FROM student INNER JOIN jpostudent ON student.id = jpostudent.id WHERE jpostudent.id_jpo = :nom";
         }
             //pagination
             $this->offset = ($this->page()-1) * 20;

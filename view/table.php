@@ -65,22 +65,19 @@ foreach($jpo as $rows ) {
 				<input type="text" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
 				<p>
 				<?php
+				$test = 0;
 				if(!empty($jpo)) { 
 					foreach($jpo as $rows ) {
-				foreach ($row->jpo as $key => $value) {
-					foreach ($value as $name) {
-					
-						if ($name === $rows->get_name()) {
+						foreach ($row->jpo as $key => $value) {
+							foreach ($value as $name) {
+								if ($name === $rows->get_name()) {
 								$test = 1;
-								echo $test;
-							} else {
-								echo "non";
+								}
 							}
-				}
-				}
-				?>
-					<input type="checkbox" name="input5[]" value="<?php echo $rows->get_id(); ?>"<?php if ($test === 1) { ?>checked<?php } $test = 0; ?>><?php echo $rows->get_name(); ?>
-				<?php
+						}
+						?>
+						<input type="checkbox" name="input5[]" value="<?php echo $rows->get_id(); ?>"<?php if ($test === 1) { ?>checked<?php } $test = 0; ?>><?php echo $rows->get_name(); ?>
+						<?php
 					}
 				}
 				?>
