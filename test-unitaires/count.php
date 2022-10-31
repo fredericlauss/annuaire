@@ -1,14 +1,14 @@
 <?php 
 chdir('../');
 require_once('./services/connectDb.php');
-$url = 'http://localhost/annuaire/?q=aze';
+$url = 'http://localhost/annuaire/?q=lausson';
 $result_http = get_headers($url)[0];
 echo $result_http;
 
 
 function verifnb($letters, $nb) {
     $connectDbTest = new Database();
-    $sqltest = "SELECT COUNT(id) FROM student WHERE prenom LIKE '%$letters%'";
+    $sqltest = "SELECT COUNT(id) FROM student WHERE nom LIKE '%$letters%'";
     $req = $connectDbTest->connection->prepare($sqltest);
     $req->execute();
     $resultatTest = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -19,5 +19,5 @@ function verifnb($letters, $nb) {
         echo "error ! ";
     }
     }
-    verifnb('aze', 7);
+    verifnb('lausson', 1);
 ?>

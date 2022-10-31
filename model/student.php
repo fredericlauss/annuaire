@@ -15,7 +15,6 @@ class Student {
         $this->tel = $row["number"];
         $this->id = $row["id"];
         $this->set_jpos();
-        echo $row["id"];
     }
 
     public function set_jpos() {
