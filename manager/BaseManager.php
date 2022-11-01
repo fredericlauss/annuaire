@@ -5,6 +5,7 @@ require_once('./services/connectDb.php');
 require_once('./controller/StudentConnectionController.php');
 require_once('./model/Student.php');
 require_once('JpoStudentManager.php');
+require_once('UrlHelper.php');
 
 
 class BaseManager {
@@ -24,8 +25,16 @@ class BaseManager {
     public function count() {
         $connectDb = new Database();
         $sqlCount = "SELECT COUNT(id) as count FROM student";
-        $req = $connectDb->connection->prepare($sqlCount);
-        $req->execute();
+        if (!empty($_GET['q'])) {
+            $params['nom'] = '%' . $_GET['q'] . '%';
+            $sqlCount .= " WHERE nom LIKE :nom";
+            $req = $connectDb->connection->prepare($sqlCount);
+            $req->execute($params);
+        } else {
+            $req = $connectDb->connection->prepare($sqlCount);
+            $req->execute();
+        }
+        
         $this->count = (int)$req->fetch()['count'];
         return $this->count;
     }

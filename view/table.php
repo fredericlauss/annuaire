@@ -88,11 +88,17 @@ foreach($jpo as $rows ) {
 	</tr>
     <?php
 		}
+	} else {
+		?>
+		<td>il n'y a pas de student !</td>
+		<?php
 	}
 	?>
   </tbody>
 </table>
-
-<?php if ($pages  > 1 ): ?>
-	<a href="?p=<?= $page + 1 ?>">page suivante</a>
+<?php if ($pages  > 1 && $page > 1): ?>
+	<a href="?<?= UrlHelper::withParam("p", $page - 1) ?>">page précédente</a>
+<?php endif?>
+<?php if ($pages  > 1 && $page < $pages): ?>
+	<a href="?<?= UrlHelper::withParam("p", $page + 1) ?>">page suivante</a>
 <?php endif?>
