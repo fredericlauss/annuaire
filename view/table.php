@@ -1,5 +1,6 @@
 <?php 
 require_once('./controller/StudentReadController.php');
+require_once('./manager/TableHelper.php');
 
 ?>
 
@@ -17,18 +18,18 @@ foreach($jpo as $rows ) {
 <?php
 }
 ?>
-<table>
+<table class="table table-striped table-hover table-sm align-middle">
 	<thead>
 		<tr>
-		<th>nom</th>
-		<th>prénom</th>
-		<th>mail</th>
+		<th><?php echo TableHelper::sort('nom', 'Nom', $_GET) ?></th>
+		<th><?php echo TableHelper::sort('prenom', 'Prénom', $_GET) ?></th>
+		<th><?php echo TableHelper::sort('mail', 'E-mail', $_GET) ?></th>
 		<th>tel</th>
 		<th>jpo</th>
 		<th>action</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="table-group-divider">
 	<?php
 	if(!empty($students)) { 
 		foreach($students as $row ) {
@@ -56,7 +57,22 @@ foreach($jpo as $rows ) {
 			</form>
 		</td>
 	  	<td>
-			<form action="controller\StudentUpdateController.php" method="POST">
+			<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+		
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+	  <form action="controller\StudentUpdateController.php" method="POST">
 				<label for="input1">Nom</label>
 				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
 				<input type="text" name="input1" placeholder="<?php echo $row->get_name(); ?>" value="<?php echo $row->get_name(); ?>"/>
@@ -82,8 +98,17 @@ foreach($jpo as $rows ) {
 				}
 				?>
 				</p>
-				<input type="submit" name="update" value="update">
-			</form>
+				
+			
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="submit" name="update" class="btn btn-primary" value="update">
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
 		<td>
 	</tr>
     <?php
@@ -97,8 +122,8 @@ foreach($jpo as $rows ) {
   </tbody>
 </table>
 <?php if ($pages  > 1 && $page > 1): ?>
-	<a href="?<?= UrlHelper::withParam("p", $page - 1) ?>">page précédente</a>
+	<a href="?<?= UrlHelper::withParam($_GET, "p", $page - 1) ?>">page précédente</a>
 <?php endif?>
 <?php if ($pages  > 1 && $page < $pages): ?>
-	<a href="?<?= UrlHelper::withParam("p", $page + 1) ?>">page suivante</a>
+	<a href="?<?= UrlHelper::withParam($_GET, "p", $page + 1) ?>">page suivante</a>
 <?php endif?>

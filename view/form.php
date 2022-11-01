@@ -1,8 +1,9 @@
-
+<h3>Créer un student</h3>
 <form action="controller\StudentCreatController.php" method="POST" class="">
-	<h4>Créer un student</h4>	
-    <label for="input1">Nom</label>
-    <input type="text" name="input1" placeholder="Nom" />
+    <div class="mb-3">
+        <label for="input1" class="form-label" >Nom</label>
+        <input type="text" class="form-control" name="input1" placeholder="Nom" />
+    </div>
     <label for="input2">Prénom</label>
     <input type="text" name="input2" placeholder="Prénom" />
     <label for="input3">E-mail</label>

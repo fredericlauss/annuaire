@@ -1,5 +1,5 @@
 <form action="controller\JpoCreatController.php" method="POST" class="">
-	<h4>Créer un jpo</h4>	
+	<h3>Créer un jpo</h3>	
     <label for="input1">Nom</label>
     <input type="text" name="input1" placeholder="Nom" />
     <label for="input2">Date</label>

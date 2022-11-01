@@ -44,10 +44,22 @@ class BaseManager {
         $connectDb = new Database();
         $sql = "SELECT * FROM student";
         $params =[];
-        //filtre
+        $filtre = ["nom", "prenom", "mail"];
+        //filtre par nom
         if (!empty($_GET['q'])) {
             $sql .= " WHERE nom LIKE :nom";
             $params['nom'] = '%' . $_GET['q'] . '%';
+        }
+        // filtre asc et desc
+        if (!empty($_GET['sort']) && in_array($_GET['sort'], $filtre)) {
+            echo " proute";
+            $direction = $_GET['dir'] ?? 'asc';
+            echo "sort";
+            echo "dir";
+            if (!in_array($direction, ['asc', 'desc'])) {
+                $direction = 'asc';
+            }
+            $sql .= " Order BY " . $_GET['sort'] . " $direction ";
         }
         //filtre jpo
         if (!empty($_GET['f'])) {
