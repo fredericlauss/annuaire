@@ -1,4 +1,4 @@
-### Annuaire NWS
+# Annuaire NWS
 
 
 
@@ -13,24 +13,24 @@ Gardez en tête que ce projet doit répondre à un BESOIN client et que vous dev
 
 ## fonctionnelles
 
-# Sauvegarde des données en Base de données
+### Sauvegarde des données en Base de données
 La sauvegarde des données doit se faire au moyen d’une base de données (MySQL ou MariaDB)
-# Ajout d’un contact
+### Ajout d’un contact
 Avec un appel à une fonction PHP, vous devez pouvoir ajouter un contact dans votre BDD et le sauvegarder
-# Modifier un contact
+### Modifier un contact
 Avec un appel à une fonction PHP, vous devez pouvoir mettre à jour un contact dans votre BDD et le sauvegarder
-# Suppression d’un contact
+### Suppression d’un contact
 Avec un appel à une fonction PHP, vous devez pouvoir supprimer un contact dans votre BDD et le sauvegarder
-# Recherche d’un contact
+### Recherche d’un contact
 Avec un appel à une fonction PHP, vous pouvez récupérer depuis votre BDD un contact en particulier
-# Trier les contacts
+### Trier les contacts
 Avec un appel à une fonction PHP, vous pouvez trier les contacts sur le critère que vous souhaitez
-# Filtrer les contacts
+### Filtrer les contacts
 Avec un appel à une fonction PHP, vous pouvez filtrer les contacts sur le critère que vous souhaitez
 
 
 ## Outils
 
-# PHP
-# HTML / CSS
+### PHP
+### HTML / CSS
 
