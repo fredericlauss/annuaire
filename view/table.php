@@ -3,26 +3,29 @@ require_once('./controller/StudentReadController.php');
 require_once('./manager/TableHelper.php');
 
 ?>
-<div class="d-flex justify-content-start gap-3 mt-3 mb-3">
-<form action="">
-	<input type="text" name="q" placeholder="rechercher par prenom" value="<?= htmlentities($_GET['q'] ?? null) ?>">
-	<button>rechercher</button>
-</form>
-<?php
-foreach($jpo as $rows ) {
-?>
-<form action="">
-	<input type="text" name="f" value="<?php echo $rows->get_id(); ?>" hidden>
-	<button class="btn btn-outline-primary btn-sm"><?php echo $rows->get_name(); ?></button>
-</form>
-<?php
-}
-?>
+<div class="d-flex justify-content-between gap-3 mt-3 mb-3 align-items-center">
+	<div class="flex-fill">
+		<form class="d-flex justify-content-start gap-1 align-items-center" action="">
+			<input type="text" class="form-control" name="q" placeholder="rechercher par prenom" value="<?= htmlentities($_GET['q'] ?? null) ?>">
+			<button class="btn btn-outline-secondary">rechercher</button>
+		</form>
+	</div>
+	<div class="d-flex justify-content-end gap-3 align-items-center flex-fill">
+		<?php
+		foreach($jpo as $rows ) {
+		?>
+		<form action="">
+			<input type="text" name="f" value="<?php echo $rows->get_id(); ?>" hidden>
+			<button class="btn btn-outline-secondary btn-sm"><?php echo $rows->get_name(); ?></button>
+		</form>
+		<?php
+		}
+		?>
+	</div>
 </div>
-<div class="shadow align-items-center rounded">
 
-<table class="table align-middle">
-	<thead class="bg-light">
+<table class="table align-middle shadow rounded bg-light">
+	<thead class="">
 		<tr>
 		<th><?php echo TableHelper::sort('nom', 'Nom', $_GET) ?></th>
 		<th><?php echo TableHelper::sort('prenom', 'Prénom', $_GET) ?></th>
@@ -71,12 +74,27 @@ foreach($jpo as $rows ) {
 				</div>
 				<div class="modal-body">
 				<form action="controller\StudentUpdateController.php" method="POST">
+							<div class="mb-3">
 							<label for="input1">Nom</label>
 							<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
 							<input type="text" name="input1" placeholder="<?php echo $row->get_name(); ?>" value="<?php echo $row->get_name(); ?>"/>
+							</div>
+
+							<div class="mb-3">
+							<label for="input1">Prénom</label>
 							<input type="text" name="input2" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
+							</div>
+
+							<div class="mb-3">
+							<label for="input1">E-mail</label>
 							<input type="text" name="input3" placeholder="<?php echo $row->get_mail(); ?>" value="<?php echo $row->get_mail(); ?>"/>
+							</div>
+
+							<div class="mb-3">
+							<label for="input1">Tel</label>
 							<input type="text" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
+							</div>
+
 							<p>
 							<?php
 							$test = 0;
@@ -90,7 +108,10 @@ foreach($jpo as $rows ) {
 										}
 									}
 									?>
-									<input type="checkbox" name="input5[]" value="<?php echo $rows->get_id(); ?>"<?php if ($test === 1) { ?>checked<?php } $test = 0; ?>><?php echo $rows->get_name(); ?>
+									<div class="mb-3">
+									<input type="checkbox" class="form-check-input" name="input5[]" value="<?php echo $rows->get_id(); ?>"<?php if ($test === 1) { ?>checked<?php } $test = 0; ?>>
+									<?php echo $rows->get_name(); ?>
+									</div>
 									<?php
 								}
 							}
@@ -101,7 +122,7 @@ foreach($jpo as $rows ) {
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<input type="submit" name="update" class="btn btn-primary" value="update">
+					<input type="submit" name="update" class="btn btn-success" value="update">
 				</div>
 				</form>
 				</div>
@@ -111,7 +132,7 @@ foreach($jpo as $rows ) {
 				<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
 				<input type="submit" class="btn btn-outline-danger btn-sm" name="delete" value="delete">
 			</form>
-<div>
+			<div>
 		<td>
 	</tr>
     <?php
@@ -124,7 +145,6 @@ foreach($jpo as $rows ) {
 	?>
   </tbody>
 </table>
-</div>
 <?php if ($pages  > 1 && $page > 1): ?>
 	<a href="?<?= UrlHelper::withParam($_GET, "p", $page - 1) ?>">page précédente</a>
 <?php endif?>
