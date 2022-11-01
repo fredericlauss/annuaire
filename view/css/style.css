@@ -31,7 +31,7 @@ h3 {
 }
 
 .section {
-    padding: 125px 0 125px 0;
+    padding: 75px 0 75px 0;
     width: 100%;
 }
 .wrapper {
@@ -47,7 +47,7 @@ a {
 
 @media (max-width: 480px) {
     .section {
-        padding: 75px 0 75px 0;
+        padding: 25px 0 25px 0;
     }
     .wrapper {
         width: 100%;
