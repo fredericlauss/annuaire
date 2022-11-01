@@ -52,10 +52,7 @@ class BaseManager {
         }
         // filtre asc et desc
         if (!empty($_GET['sort']) && in_array($_GET['sort'], $filtre)) {
-            echo " proute";
             $direction = $_GET['dir'] ?? 'asc';
-            echo "sort";
-            echo "dir";
             if (!in_array($direction, ['asc', 'desc'])) {
                 $direction = 'asc';
             }
