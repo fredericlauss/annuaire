@@ -16,9 +16,32 @@ require_once('./manager/TableHelper.php');
 		?>
 		<form action="">
 			<input type="text" name="f" value="<?php echo $rows->get_id(); ?>" hidden>
-			<button class="btn btn-outline-secondary btn-sm"><?php echo $rows->get_name(); ?></button>
+			<button class="btn 
+			<?php
+			if (isset($_GET['f'])) {
+			if ($_GET['f'] == $rows->get_id()) {
+					?>
+					btn-outline-success
+					<?php
+			} else {
+				?>
+				btn-outline-secondary
+				<?php
+			}
+			} else {
+				?>
+				btn-outline-secondary
+				<?php
+			}
+			?> btn-sm"><?php echo $rows->get_name(); ?></button>
+			
 		</form>
 		<?php
+		}
+		if (isset($_GET['f'])) {
+			?>
+			<a href="http://localhost/annuaire/" class="btn btn-outline-success btn-sm">+</a>
+			<?php
 		}
 		?>
 	</div>
@@ -47,8 +70,10 @@ require_once('./manager/TableHelper.php');
 		<td><?php echo $row->get_tel(); ?></td>
 		<td>
 		<?php
+		$increment = 0;
 		foreach ($row->jpo as $key => $value) {
 			foreach ($value as $name) {
+				$increment++;
 			?>
 				<p class="badge text-success mb-0 bg-success bg-opacity-10 rounded-pill px-2 py-1"><?php echo $name; ?></p>
 		<?php
@@ -59,12 +84,12 @@ require_once('./manager/TableHelper.php');
 		<td>
 			<div class="d-flex justify-content-start align-items-center gap-3">
 			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			<button type="button" class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="<?php echo "#exampleModal$increment" ?>">
 			Update
 			</button>
 
 			<!-- Modal -->
-			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal fade" id="<?php echo "exampleModal$increment" ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 				<div class="modal-header">
