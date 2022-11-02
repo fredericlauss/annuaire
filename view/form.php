@@ -1,4 +1,4 @@
-<h3>Student</h3>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#leModal">
 Créer un student
@@ -17,19 +17,19 @@ Créer un student
         <form action="controller\StudentCreatController.php" method="POST" class="">
             <div class="mb-3">
                 <label for="input1" class="form-label" >Nom</label>
-                <input type="text" class="form-control" name="input1" placeholder="Nom" />
+                <input type="text" class="form-control" name="input1" placeholder="Nom" required/>
             </div>
             <div class="mb-3">
             <label for="input2" class="form-label">Prénom</label>
-            <input type="text" name="input2" class="form-control" placeholder="Prénom" />
+            <input type="text" name="input2" class="form-control" placeholder="Prénom" required/>
             </div>
             <div class="mb-3">
             <label for="input3" class="form-label">E-mail</label>
-            <input type="text" name="input3" class="form-control" placeholder="mail" />
+            <input type="email" name="input3" class="form-control" placeholder="mail" required/>
             </div>
             <div class="mb-3">
             <label for="input4" class="form-label">Telephone</label>
-            <input type="text" name="input4" class="form-control" placeholder="Tel" />
+            <input type="tel" name="input4" class="form-control" placeholder="Tel" />
             </div>
             <p>
             <?php

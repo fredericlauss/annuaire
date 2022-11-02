@@ -27,6 +27,19 @@ class JpoStudentManager {
         }
     }
 
+    public function deletejpo($id) {
+        $connectDb = new Database();
+        $sql ="DELETE FROM jpostudent WHERE id_jpo='$id'";
+        $res = $sql;
+        $connectDb->connection->exec($sql);
+        if ($res) {
+            echo "delete de $id";
+             return true;
+        }else {
+            return false;
+        }
+    }
+
     public function read($id) {
         $connectDb = new Database();
         $sql2 ="SELECT name FROM jpo INNER JOIN jpostudent ON jpo.id = jpostudent.id_jpo INNER JOIN student On jpostudent.id = student.id WHERE student.id = $id";

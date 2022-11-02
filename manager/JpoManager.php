@@ -30,4 +30,17 @@ class JpoManager {
             }
         return $jpo;
     }
+
+    public function delete($id) {
+        $connectDb = new Database();
+        $sql ="DELETE FROM jpo WHERE id='$id'";
+        $res = $sql;
+        $connectDb->connection->exec($sql);
+        if ($res) {
+            echo "delete de $id";
+             return true;
+        }else {
+            return false;
+        }
+    }
 }

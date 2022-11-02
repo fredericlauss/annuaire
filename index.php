@@ -1,3 +1,3 @@
-<?php
-require_once('./controller/StudentReadController.php');
 
+<?php
+require_once "controller\StudentReadController.php";

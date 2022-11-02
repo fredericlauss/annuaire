@@ -102,22 +102,22 @@ require_once('./manager/TableHelper.php');
 							<div class="mb-3">
 							<label for="input1">Nom</label>
 							<input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
-							<input type="text" name="input1" placeholder="<?php echo $row->get_name(); ?>" value="<?php echo $row->get_name(); ?>"/>
+							<input type="text" name="input1" placeholder="<?php echo $row->get_name(); ?>" value="<?php echo $row->get_name(); ?>" required/>
 							</div>
 
 							<div class="mb-3">
 							<label for="input1">Prénom</label>
-							<input type="text" name="input2" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>"/>
+							<input type="text" name="input2" placeholder="<?php echo $row->get_prenom(); ?>" value="<?php echo $row->get_prenom(); ?>" required/>
 							</div>
 
 							<div class="mb-3">
 							<label for="input1">E-mail</label>
-							<input type="text" name="input3" placeholder="<?php echo $row->get_mail(); ?>" value="<?php echo $row->get_mail(); ?>"/>
+							<input type="email" name="input3" placeholder="<?php echo $row->get_mail(); ?>" value="<?php echo $row->get_mail(); ?>" required/>
 							</div>
 
 							<div class="mb-3">
-							<label for="input1">Tel</label>
-							<input type="text" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
+							<label for="input1">Telephone</label>
+							<input type="tel" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
 							</div>
 
 							<p>

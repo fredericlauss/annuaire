@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +15,12 @@
     <main>
     <div class="section">
         <div class="wrapper">
-            <h2>Annuaire NWS</h2>
+            <h2>Annuaire NWS - JPO</h2>
             <div class="mt-3 mb-3">
-                <a class="btn btn-outline-success" href="jpo.php">Jpo</a>
+                <a class="btn btn-outline-success" href="http://localhost/annuaire/">accueil</a>
             </div>
-            <?php require_once( __DIR__ . './form.php') ?>
-            <?php require_once( __DIR__ . './table.php') ?>
+            <?php require_once( __DIR__ . './formCreatJpo.php') ?>
+            <?php require_once( __DIR__ . './tableJpo.php') ?>
         </div>
     </div>
     </main>

@@ -1,4 +1,4 @@
-<h3>jpo</h3>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Modal">
 Créer un jpo
@@ -17,11 +17,11 @@ Créer un jpo
       <form action="controller\JpoCreatController.php" method="POST" class="">
       <div class="mb-3">
     <label class="form-label" for="input1">Nom</label>
-    <input type="text" class="form-control" name="input1" placeholder="Nom" />
+    <input type="text" class="form-control" name="input1" placeholder="Nom" required/>
     </div>
     <div class="mb-3">
     <label class="form-label" for="input2">Date</label>
-    <input type="date" class="form-control" name="input2" placeholder="Date" />
+    <input type="date" class="form-control" name="input2" placeholder="Date" required/>
     </div>
     
 
