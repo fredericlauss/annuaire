@@ -61,6 +61,7 @@ require_once('./manager/TableHelper.php');
 	<tbody class="">
 	<?php
 	if(!empty($students)) { 
+		$increment = 1;
 		foreach($students as $row ) {
 	?>
 	<tr>
@@ -70,10 +71,11 @@ require_once('./manager/TableHelper.php');
 		<td><?php echo $row->get_tel(); ?></td>
 		<td>
 		<?php
-		$increment = 0;
+		
+		$increment = $increment + 1;
 		foreach ($row->jpo as $key => $value) {
 			foreach ($value as $name) {
-				$increment++;
+				
 			?>
 				<p class="badge text-success mb-0 bg-success bg-opacity-10 rounded-pill px-2 py-1"><?php echo $name; ?></p>
 		<?php
