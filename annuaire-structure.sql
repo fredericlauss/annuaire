@@ -77,16 +77,6 @@ CREATE TABLE `jpo` (
   `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Déchargement des données de la table `jpo`
---
-
-INSERT INTO `jpo` (`id`, `name`, `date`) VALUES
-(2, 'jpo hiver', '2020-07-20'),
-(3, 'jpo automne', '2022-05-13'),
-(4, 'jpo spring', '2023-04-10'),
-(18, 'test', '2020-06-15');
-
 -- --------------------------------------------------------
 
 --
@@ -97,47 +87,6 @@ CREATE TABLE `jpostudent` (
   `id` int(11) NOT NULL,
   `id_jpo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `jpostudent`
---
-
-INSERT INTO `jpostudent` (`id`, `id_jpo`) VALUES
-(42, 2),
-(42, 3),
-(44, 3),
-(44, 4),
-(49, 3),
-(50, 3),
-(51, 3),
-(52, 2),
-(53, 3),
-(54, 4),
-(56, 4),
-(57, 2),
-(57, 3),
-(58, 3),
-(59, 2),
-(59, 3),
-(59, 4),
-(60, 3),
-(61, 4),
-(64, 3),
-(65, 3),
-(66, 2),
-(66, 3),
-(66, 4),
-(67, 2),
-(67, 3),
-(67, 4),
-(70, 2),
-(70, 3),
-(70, 4),
-(71, 2),
-(72, 2),
-(73, 2),
-(74, 3),
-(74, 4);
 
 -- --------------------------------------------------------
 
@@ -152,35 +101,6 @@ CREATE TABLE `student` (
   `mail` text NOT NULL,
   `number` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `student`
---
-
-INSERT INTO `student` (`id`, `nom`, `prenom`, `mail`, `number`) VALUES
-(42, 'lausson', 'frédéric', 'test@gmail.com', '0606060606'),
-(44, 'test2', 'test2', 'test@gmail.com', '0606060606'),
-(49, 'test', 'test', 'test@gmail.com', '0606060606'),
-(50, 'test', 'test', 'test@gmail.com', '0606060606'),
-(51, 'test', 'test', 'test@gmail.com', '0606060606'),
-(52, 'test', 'test', 'test@gmail.com', '0606060606'),
-(53, 'test', 'test', 'test@gmail.com', '0606060606'),
-(54, 'test', 'test', 'test@gmail.com', '0606060606'),
-(56, 'test', 'test', 'test@gmail.com', '0606060606'),
-(57, 'test', 'test', 'test@gmail.com', '0606060606'),
-(58, 'test', 'test', 'test@gmail.com', '0606060606'),
-(59, 'test', 'test', 'test@gmal.com', '0606060606'),
-(60, 'test', 'test', 'test@gmail.com', '0606060606'),
-(61, 'test', 'test', 'test@gmail.com', '0606060606'),
-(64, 'bonjour', 'bonjour', 'bonjour@gmail.com', '0606060606'),
-(65, 'bonjourzzz', 'bonjourzzz', 'bonjourzzz@gmail.com', '0606060606'),
-(66, 'nouveau', 'nouveau', 'zaeaze@gmail.com', '0606060606'),
-(67, 'testiiiiiiiiiiiiiiiiiiiiiii', 'test', 'test@gmail.com', '0606060606'),
-(70, 'lausson', 'olivier', 'olivier@gmail.com', '0606060606'),
-(71, 'philippe', 'lausson', 'phil@gmail.com', '0606060606'),
-(72, 'dorothea', 'sailer', 'thea@gmail.com', '0606060606'),
-(73, 'dorothea', 'sailer', 'thea@gmail.com', '0606060606'),
-(74, 'moritz', 'sailer', 'moritz@gmail.com', '0606060606');
 
 --
 -- Index pour les tables déchargées
@@ -251,13 +171,13 @@ ALTER TABLE `filiere`
 -- AUTO_INCREMENT pour la table `jpo`
 --
 ALTER TABLE `jpo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
