@@ -1,9 +1,12 @@
 <?php
 chdir('../');
 require_once('./services/connectDB.php');
+require_once('./manager/BaseManager.php');
+require_once('./manager/JpoStudentManager.php');
 require_once('./manager/JpoManager.php');
-$studentCreatController = new JpoCreatController();
-$studentCreatController->creat();
+$jpoDeleteController = new StudentDeleteController();
+$jpoDeleteController->deleteJpoStudent();
+$jpoDeleteController->delete();
 header('Location: http://localhost/annuaire/jpo.php');
 exit();
 

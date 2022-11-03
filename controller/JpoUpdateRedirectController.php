@@ -5,7 +5,7 @@ require_once('./manager/BaseManager.php');
 require_once('./manager/JpoStudentManager.php');
 require_once('./manager/JpoManager.php');
 $jpoReadOneController = new JpoUpdateRedirectController();
-$jpoReadOneController->ReadOneJpo();
+$jpo = $jpoReadOneController->ReadOneJpo();
 require_once('./view/jpoUpdate.php');
 
 class JpoUpdateRedirectController {

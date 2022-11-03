@@ -23,11 +23,9 @@ class JpoManager {
         $req = $connectDb->connection->prepare($sql);
         $req->execute();
         $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-         
             foreach($resultat as $row) {
                 $jpo[] = new Jpo($row);
             }
-            var_dump($jpo);
         return $jpo;
     }
 
@@ -52,6 +50,19 @@ class JpoManager {
         $connectDb->connection->exec($sql);
         if ($res) {
             echo "delete de $id";
+             return true;
+        }else {
+            return false;
+        }
+    }
+
+    public function update($id, $input1, $input2)
+    {
+        $connectDb = new Database();
+        $sql ="UPDATE `jpo` SET `name`='$input1', `date`='$input2' WHERE `id`='$id'";
+        $res = $sql;
+        $connectDb->connection->exec($sql);
+        if ($res) {
              return true;
         }else {
             return false;
