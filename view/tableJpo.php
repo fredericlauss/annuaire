@@ -16,11 +16,18 @@
                 <td><?php echo $row->get_name(); ?></td>
                 <td><?php echo $row->get_date(); ?></td>
                 <td>
-                </div>
+                <div>
                     <form class="mb-0" action="controller\jpoDeleteController.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
                         <input type="submit" class="btn btn-outline-danger btn-sm" name="delete" value="delete">
                     </form>
+                </div>
+                <div>
+                    <form class="mb-0" action="controller\JpoUpdateRedirectController.php" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $row->get_id(); ?>">
+                        <input type="submit" class="btn btn-outline-secondary btn-sm" name="update" value="redirect">
+                    </form>
+                </div>
                 </td>
             </tr>
             <?php

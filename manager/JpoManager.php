@@ -16,6 +16,20 @@ class JpoManager {
             return false;
         }
     }
+    public function readOne($id) {
+        $jpo = [];
+        $connectDb = new Database();
+        $sql = "SELECT * FROM jpo WHERE id = $id";
+        $req = $connectDb->connection->prepare($sql);
+        $req->execute();
+        $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+         
+            foreach($resultat as $row) {
+                $jpo[] = new Jpo($row);
+            }
+            var_dump($jpo);
+        return $jpo;
+    }
 
     public function getAll() {
         $jpo = [];
