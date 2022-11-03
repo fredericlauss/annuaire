@@ -37,7 +37,7 @@ Avec un appel à une fonction PHP, vous pouvez filtrer les contacts sur le crit�
 
 ## installation
 
-### annuaire.sql est a voitre disposition pour importer la base de données
+### annuaire.sql est a voitre disposition pour importer la base de données ( avec ou sans les données )
 
 ### puis démarer votre serveur local
 
