@@ -19,5 +19,5 @@ function verifnb($letters, $nb) {
         echo "error ! ";
     }
     }
-    verifnb('lausson', 1);
+    verifnb('lausson', 2);
 ?>
