@@ -117,7 +117,7 @@ require_once('./manager/TableHelper.php');
 
 							<div class="mb-3">
 							<label for="input1">Telephone</label>
-							<input type="tel" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
+							<input type="tel" pattern="[0-9]{10}" maxlenght="10" name="input4" placeholder="<?php echo $row->get_tel(); ?>" value="<?php echo $row->get_tel(); ?>"/>
 							</div>
 
 							<p>

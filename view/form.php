@@ -29,7 +29,7 @@ Créer un student
             </div>
             <div class="mb-3">
             <label for="input4" class="form-label">Telephone</label>
-            <input type="tel" name="input4" class="form-control" placeholder="Tel" />
+            <input type="tel" pattern="[0-9]{10}" maxlenght="10" name="input4" class="form-control" placeholder="Tel" />
             </div>
             <p>
             <?php
